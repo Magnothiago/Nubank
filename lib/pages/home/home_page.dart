@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nubank/pages/home/widgets/card_app.dart';
 import 'package:nubank/pages/home/widgets/my_app_bar.dart';
+import 'package:nubank/pages/home/widgets/my_dots_app.dart';
 import 'package:nubank/pages/home/widgets/page_view_app.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double _scrennHeigth = MediaQuery.of(context).size.height;
+    var white = Colors.white;
     return Scaffold(
       backgroundColor: Colors.purple,
       body: Stack(
@@ -39,10 +41,12 @@ class _HomePageState extends State<HomePage> {
             onChanged: (index) {
               setState(() {
                 _currentIndex = index;
-                ;
               });
             },
-          )
+          ),
+          Positioned(
+              top: _scrennHeigth * 0.74,
+              child: MyDotsApp(currentIndex: _currentIndex))
         ],
       ),
     );
